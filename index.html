@@ -1,5 +1,5 @@
 <!DOCTYPE html><!--  This site was created in Webflow. http://www.webflow.com  -->
-<!--  Last Published: Sun Jan 24 2021 17:33:36 GMT+0000 (Coordinated Universal Time)  -->
+<!--  Last Published: Mon Jan 25 2021 12:00:34 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="5ca31360755353f373f56638" data-wf-site="5ca313607553531b04f56636">
 <head>
   <meta charset="utf-8">
@@ -118,6 +118,81 @@
           <p class="paragraph-wat-is-dvb-t">DVB-T staat afgekort voor Digital Video Broadcasting - Terrestrial. <br>Of zoals we het op z’n simpel Vlaams zouden zeggen: antenne tv! <br>DVB-T is dé open standaard voor de uitzending van digitale tv-signalen via zendmasten. <br>Op het kaartje hieronder, vind je de locaties waarbij de zendmasten voor het meest optimale ontvangst zijn.</p>
         </div>
         <div class="w-col w-col-2"></div>
+      </div>
+      <div class="w-embed w-script">
+        <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(
+            document.getElementById('map'),
+            {center: new google.maps.LatLng(50.918155, 4.347911), zoom: 8});
+        var iconBase =
+            'https:';
+        var icons = {
+          antena: {
+            icon: 'https://uploads-ssl.webflow.com/5ca313607553531b04f56636/5ca4d1000a5009b6ee40b045_orange%20mark.svg'
+          },
+          library: {
+            icon: iconBase + 'library_maps.png'
+          },
+          info: {
+            icon: iconBase + 'info-i_maps.png'
+          }
+        };
+        var features = [
+          {
+            position: new google.maps.LatLng(51.273074, 4.372407),
+            type: 'antena'
+          }, {
+            position: new google.maps.LatLng(50.877111, 4.924016),
+            type: 'antena'
+          }, {
+            position: new google.maps.LatLng(50.846925, 4.353064),
+            type: 'antena'
+          }, {
+            position: new google.maps.LatLng(50.916315, 3.933019),
+            type: 'antena'
+          }, {
+            position: new google.maps.LatLng(50.971430, 5.497875),
+            type: 'antena'
+          }, {
+            position: new google.maps.LatLng(51.065002, 3.726103),
+            type: 'antena'
+          }, {
+            position: new google.maps.LatLng(51.126222, 5.074601),
+            type: 'antena'
+          }, {
+            position: new google.maps.LatLng(51.193429, 4.177111),
+            type: 'antena'
+          }, {
+            position: new google.maps.LatLng(50.931423, 2.737011),
+            type: 'antena'
+          }, {
+            position: new google.maps.LatLng(51.319707, 5.003151),
+            type: 'antena'
+          }, {
+            position: new google.maps.LatLng(51.261822, 4.509565),
+            type: 'antena'
+          }, {
+            position: new google.maps.LatLng(50.787439, 4.241975),
+            type: 'antena'
+          }, {
+            position: new google.maps.LatLng(50.912602, 4.650035),
+            type: 'antena'
+          }
+        ];
+        // Create markers.
+        for (var i = 0; i < features.length; i++) {
+          var marker = new google.maps.Marker({
+            position: features[i].position,
+            icon: icons[features[i].type].icon,
+            map: map
+          });
+        };
+      }
+    </script>
+        <script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHF4XK6nNdQkr7KrBQpYuzuexMGZ6W7aY&callback=initMap">
+    </script>
       </div>
     </div>
     <div id="map" class="map-div"></div>
